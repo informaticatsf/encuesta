@@ -21,3 +21,4 @@ Route::get('encuestadoc/create', 'EncuestadoController@create')->name('encuestad
 Route::post('encuestadost/store', 'EncuestadoController@store')->name('encuestado.store');
 Route::get('responderc/pregunta/{encuestado}', 'ResponderController@obtenPreg')->name('responder.create');
 Route::post('rsponderp/store', 'ResponderController@store')->name('responder.store');
+Route::post('rsponderpc/store', 'ResponderController@storecomenta')->name('respondercomenta.store');

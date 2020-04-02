@@ -31,7 +31,7 @@ class ResponderController extends Controller
     {
         $datas=Responder::ObtenerPregunta($encuestado);
         if (empty($datas )){
-            return  view('responder.fin');
+            return  view('responder.createcomenta',compact('encuestado'));
         }else{
         $datass=Responder::ObtenerRespuesta($datas[0]->id); 
         return  view('responder.create',['encuestado'=> $encuestado, 'datos'=>$datas, 'respuestas'=>$datass]);
@@ -47,6 +47,11 @@ class ResponderController extends Controller
     public function store(Request $request)
     {
         return Responder::guardarRespuesta($request);
+    }
+
+    public function storecomenta(Request $request)
+    {
+        return Responder::guardarComentario($request);
     }
 
     /**

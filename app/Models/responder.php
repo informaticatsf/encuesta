@@ -36,5 +36,24 @@ class responder extends Model
     public static function ObtenerRespuesta($pregunta) {
         return  DB::select('call GetRespuesta(?)',array($pregunta));
     }
+
+    public static function guardarComentario($request){
+        $rules = [
+            'encuestado' => 'required',
+            'comentario' => 'required', 
+        ];
+     
+        $validator=Validator::make($request->all(), $rules);
+        if($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
+        DB::select('call ResponderComentario(?,?)',array(
+         $request->get("encuestado"),
+         $request->get("comentario"),
+        ));
+     
+        return view('responder.fin');
+        
+     }
   
 }

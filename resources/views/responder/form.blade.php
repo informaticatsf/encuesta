@@ -30,7 +30,7 @@
                               <div class="col-lg-8 col-md-8 col-sm-12">
                                 <select  name="idrespuesta" id="idrespuesta"  required="required"
                                 class="form-control">
-                                    <option value="">--Seleccione su respuesta--</option>
+                                    <option value="" disabled selected>--Seleccione su respuesta--</option>
                                     @foreach ($respuestas as $respuesta)
                                     <option  value="{{$respuesta->id}}">{{$respuesta->respuesta}}</option>
                                     @endforeach
